@@ -20,9 +20,9 @@ const routes: Routes = [
           import('../Gestor/estatistica-gestor/estatistica-gestor.module').then(m => m.EstatisticaGestorPageModule)
       },
       {
-        path: 'dados-usuario',
+        path: 'dados-usuario',        
         loadChildren: () =>
-          import('../dados-usuario/dados-usuario.module').then(m => m.DadosUsuarioPageModule)
+          import('../dados-usuario/dados-usuario.module').then(n => n.DadosUsuarioPageModule)
       }
     ]
   },

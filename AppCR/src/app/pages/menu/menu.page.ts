@@ -22,7 +22,7 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Dados',
-      url: '/dados-usuario',
+      url: '/menu/dados-usuario',
       icon: 'user'
     }
   ]

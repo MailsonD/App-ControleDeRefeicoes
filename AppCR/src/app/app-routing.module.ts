@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'view-janta', loadChildren: './pages/view-janta/view-janta.module#ViewJantaPageModule' },
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
   { path: 'primeiro-acesso', loadChildren: './pages/primeiro-acesso/primeiro-acesso.module#PrimeiroAcessoPageModule' },
-  { path: 'dados-usuario', loadChildren: './pages/dados-usuario/dados-usuario.module#DadosUsuarioPageModule' }
 ];
 
 @NgModule({
