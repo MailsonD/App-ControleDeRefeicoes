@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>viewPublica</ion-title>
+    <ion-title>Info</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+
+  <ion-card>
+    <img src="../../../assets/img/madison.jpg" />
+    <ion-card-header>
+      <ion-card-title>Info Refeições</ion-card-title>
+      <ion-card-subtitle>Total de Refeições Extras</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-text color="success">
+        <h1>{{valor}}</h1>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Info Sistema</ion-card-title>
+      <ion-card-subtitle>@LoopisJr</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list>
+        <ion-item *ngFor="let item of items">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>{{item}}</ion-label>
+        </ion-item>
+
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>
