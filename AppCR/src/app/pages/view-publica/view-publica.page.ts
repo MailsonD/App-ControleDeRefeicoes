@@ -7,7 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPublicaPage implements OnInit {
 
-  constructor() { }
+  public valor: Number;
+  public items: string[];
+
+  constructor() { 
+    this.valor = 450;
+    this.items = [
+      "Caio Guilherme",
+      "Caique Vitoriano",
+      "Ian Carneiro",
+      "Leanderson Coelho",
+      "Luan Bruno",
+      "Mailson Dennis",
+      "Raul Coelho"
+    ]
+
+
+  }
 
   ngOnInit() {
   }
