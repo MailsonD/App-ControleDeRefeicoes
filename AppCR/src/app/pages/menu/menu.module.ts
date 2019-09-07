@@ -17,11 +17,16 @@ const routes: Routes = [
       {
         path: 'estatistica-gestor',
         loadChildren: () =>
-              import('../Gestor/estatistica-gestor/estatistica-gestor.module').then(m => m.EstatisticaGestorPageModule)
-          }
+          import('../Gestor/estatistica-gestor/estatistica-gestor.module').then(m => m.EstatisticaGestorPageModule)
+      },
+      {
+        path: 'dados-usuario',
+        loadChildren: () =>
+          import('../dados-usuario/dados-usuario.module').then(m => m.DadosUsuarioPageModule)
+      }
     ]
   },
-  
+
 ];
 
 @NgModule({
