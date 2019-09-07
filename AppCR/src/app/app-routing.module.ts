@@ -5,6 +5,9 @@ const routes: Routes = [
   { path: 'view-publica', loadChildren: './pages/view-publica/view-publica.module#ViewPublicaPageModule'},
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+
+  { path: 'view-almoco', loadChildren: './pages/view-almoco/view-almoco.module#ViewAlmocoPageModule' },
+  { path: 'view-janta', loadChildren: './pages/view-janta/view-janta.module#ViewJantaPageModule' },
 ];
 
 @NgModule({

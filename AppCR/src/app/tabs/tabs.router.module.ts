@@ -23,7 +23,7 @@ const routes: Routes = [
           {
             path: 'almoco',
             loadChildren: () =>
-              import('../pages/view-publica/view-publica.module').then(m => m.ViewPublicaPageModule)
+              import('../pages/view-almoco/view-almoco.module').then(m => m.ViewAlmocoPageModule)
           }
         ]
       },
@@ -33,7 +33,7 @@ const routes: Routes = [
           {
             path: 'janta',
             loadChildren: () =>
-              import('../pages/view-publica/view-publica.module').then(m => m.ViewPublicaPageModule)
+              import('../pages/view-janta/view-janta.module').then(m => m.ViewJantaPageModule)
           }
         ]
       }
