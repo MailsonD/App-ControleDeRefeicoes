@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrimeioAcessoPage } from './primeio-acesso.page';
+import { PrimeiroAcessoPage } from './primeiro-acesso.page';
 
-describe('PrimeioAcessoPage', () => {
-  let component: PrimeioAcessoPage;
-  let fixture: ComponentFixture<PrimeioAcessoPage>;
+describe('PrimeiroAcessoPage', () => {
+  let component: PrimeiroAcessoPage;
+  let fixture: ComponentFixture<PrimeiroAcessoPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrimeioAcessoPage ],
+      declarations: [ PrimeiroAcessoPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PrimeioAcessoPage);
+    fixture = TestBed.createComponent(PrimeiroAcessoPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

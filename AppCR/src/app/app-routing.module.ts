@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'view-almoco', loadChildren: './pages/view-almoco/view-almoco.module#ViewAlmocoPageModule' },
   { path: 'view-janta', loadChildren: './pages/view-janta/view-janta.module#ViewJantaPageModule' },
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
-  { path: 'primeio-acesso', loadChildren: './pages/primeio-acesso/primeio-acesso.module#PrimeioAcessoPageModule' }
+  { path: 'primeiro-acesso', loadChildren: './pages/primeiro-acesso/primeiro-acesso.module#PrimeiroAcessoPageModule' }
 ];
 
 @NgModule({
