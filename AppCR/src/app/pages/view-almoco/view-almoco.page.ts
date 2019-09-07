@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonTabs } from '@ionic/angular';
 
 @Component({
   selector: 'app-view-almoco',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewAlmocoPage implements OnInit {
 
-  constructor() { }
+  @ViewChild("refeicao")refeicao:IonTabs
+
+  constructor() { 
+    
+  }
+
+  ngAfterViewInit(){
+    setTimeout(()=>{
+      this.refeicao.select(1)
+    },100)
+  }
 
   ngOnInit() {
   }
