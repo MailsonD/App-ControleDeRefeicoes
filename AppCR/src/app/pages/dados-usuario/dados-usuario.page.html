@@ -9,9 +9,15 @@
   
   
   <ion-content>
+    
+
 
      <div class="ion-margin-vertical">
-        <img  class="redondo" src="../../../assets/img/madison.jpg" />  
+        <ion-button (click)="takeSnap()">
+            Take Snap
+          </ion-button>
+         
+        <img  class="redondo" [src]="capturedSnapURL" />  
 
      </div>
     <ion-card class="background-color"  >
