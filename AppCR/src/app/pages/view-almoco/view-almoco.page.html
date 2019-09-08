@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title *ngIf="!barraDePesquisaAberta">Almoço</ion-title>
     <ion-searchbar *ngIf="barraDePesquisaAberta" showCancelButton="true" (ionCancel)="barraDePesquisaAberta=false">
-    </ion-searchbar>
+    </ion-searchbar>  
 
     <ion-buttons slot="end">
       <ion-button *ngIf="!barraDePesquisaAberta" (click)="barraDePesquisaAberta=true">
@@ -10,6 +10,7 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>

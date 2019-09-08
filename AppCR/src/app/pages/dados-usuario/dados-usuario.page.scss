@@ -1,0 +1,22 @@
+.background-image{
+    --background: url(../../../assets/img/images.jpeg) 0 0/100% no-repeat;
+}
+
+.background-color{
+    --background: white;
+    
+}
+
+.ion-margin-vertical{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.redondo {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+
+ }

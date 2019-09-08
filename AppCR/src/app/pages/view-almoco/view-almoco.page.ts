@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonTabs } from '@ionic/angular';
 
 @Component({
   selector: 'app-view-almoco',
@@ -30,3 +31,4 @@ export class ViewAlmocoPage implements OnInit {
   }
 
 }
+
