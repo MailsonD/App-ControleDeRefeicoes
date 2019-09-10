@@ -1,17 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Danos</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-  <div class="ion-margin-vertical">
-    <img class="redondo" src="../../../assets/img/madison.jpg" />
-  </div>
-  <form [formGroup]="usuarioForm" (ngSubmit)="update()">
-    <ion-card class="background-color">
+    <ion-toolbar>
+      <ion-title>Danos</ion-title>  
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content>
+    
+
+
+     <div class="ion-margin-vertical">
+        <ion-button (click)="takeSnap()">
+            Take Snap
+          </ion-button>    
+         
+        <img  class="redondo" [src]="capturedSnapURL" />  
+
+     </div>
+    <ion-card class="background-color"  >
       <ion-row class="ion-align-items-center">
         <ion-col size="12">
           <div>
