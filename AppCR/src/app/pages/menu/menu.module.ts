@@ -23,6 +23,11 @@ const routes: Routes = [
         path: 'dados-usuario',        
         loadChildren: () =>
           import('../dados-usuario/dados-usuario.module').then(n => n.DadosUsuarioPageModule)
+      },
+      {
+        path: 'historico',        
+        loadChildren: () =>
+          import('../Professor/historico/historico.module').then(n => n.HistoricoPageModule)
       }
     ]
   },

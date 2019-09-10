@@ -24,7 +24,7 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title>Info Professor</ion-card-title>
-      <ion-card-subtitle>Professor que mais solicitou refeições</ion-card-subtitle>
+      <ion-card-subtitle>Professor que mais solicitou Almoços</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
@@ -33,4 +33,91 @@
       </ion-text>
     </ion-card-content>
   </ion-card>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>Info Professor</ion-card-title>
+        <ion-card-subtitle>Professor que mais solicitou Jantares</ion-card-subtitle>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <ion-text color="primary">
+          <h1>{{professor}}</h1>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+    
+  <ion-card>
+    
+      <ion-card-header>
+        <ion-card-title>Info Almoços</ion-card-title>
+        <ion-card-subtitle>Quantidade de Almoços Deferidos</ion-card-subtitle>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <ion-text color="success">
+          <h1>{{valor+100}}</h1>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Info Almoços</ion-card-title>
+          <ion-card-subtitle>Quantidade de Almoços Indeferidos</ion-card-subtitle>
+        </ion-card-header>
+    
+        <ion-card-content>
+          <ion-text color="success">
+            <h1>{{valor+1000}}</h1>
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>
+            <ion-card-title>Info Jantares</ion-card-title>
+            <ion-card-subtitle>Quantidade de Jantares Deferidos</ion-card-subtitle>
+          </ion-card-header>
+      
+          <ion-card-content>
+            <ion-text color="success">
+              <h1>{{valor+100}}</h1>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title>Info Jantares</ion-card-title>
+              <ion-card-subtitle>Quantidade de Jantares Indeferidos</ion-card-subtitle>
+            </ion-card-header>
+        
+            <ion-card-content>
+              <ion-text color="success">
+                <h1>{{valor-300}}</h1>
+              </ion-text>
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+              <ion-card-header>
+                <ion-card-title>Info Semana</ion-card-title>
+                <ion-card-subtitle>Dia da Semana com mais Solicitações de Almoços</ion-card-subtitle>
+              </ion-card-header>
+          
+              <ion-card-content>
+                <ion-text color="primary">
+                  <h1>{{dia}}</h1>
+                </ion-text>
+              </ion-card-content>
+            </ion-card>
+          <ion-card>
+              <ion-card-header>
+                <ion-card-title>Info Semana</ion-card-title>
+                <ion-card-subtitle>Dia da Semana com mais Solicitações de Jantares</ion-card-subtitle>
+              </ion-card-header>
+          
+              <ion-card-content>
+                <ion-text color="primary">
+                  <h1>{{dia}}</h1>
+                </ion-text>
+              </ion-card-content>
+            </ion-card>
+          
 </ion-content>

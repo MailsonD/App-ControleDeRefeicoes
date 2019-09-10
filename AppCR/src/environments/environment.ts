@@ -3,8 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API: 'http://localhost:3000'
 };
+
+/**
+ * API -> endereço da API que vai fornecer dados para aplicação
+ * obs.: Adicionar o `/` ao utilizar variavel nos serviços.
+ * @author leanderson.coelhoif@gmail.com
+ */
 
 /*
  * For easier debugging in development mode, you can import the following file
