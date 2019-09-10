@@ -11,19 +11,19 @@ export class MenuPage implements OnInit {
 
   pages = [
     {
-      title: 'Main',
+      title: 'Estatisticas',
       url: '/menu/estatistica-gestor',
-      icon: 'home'
+      icon: 'stats'
+    },
+    {
+      title: 'Dados',
+      url: '/menu/dados-usuario',
+      icon: 'contact'
     },
     {
       title: 'Logout',
       url: '/tabs/tab1/view',
       icon: 'power'
-    },
-    {
-      title: 'Dados',
-      url: '/menu/dados-usuario',
-      icon: 'user'
     }
   ]
 
