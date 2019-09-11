@@ -6,7 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu.page';
-import { EstatisticaGestorPage } from '../Gestor/estatistica-gestor/estatistica-gestor.page';
 
 
 const routes: Routes = [
@@ -17,7 +16,7 @@ const routes: Routes = [
       {
         path: 'estatistica-gestor',
         loadChildren: () =>
-          import('../Gestor/estatistica-gestor/estatistica-gestor.module').then(m => m.EstatisticaGestorPageModule)
+          import('../estatistica-gestor/estatistica-gestor.module').then(m => m.EstatisticaGestorPageModule)
       },
       {
         path: 'dados-usuario',        
