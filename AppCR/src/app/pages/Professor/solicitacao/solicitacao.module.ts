@@ -10,9 +10,10 @@ import { SolicitacaoPage } from './solicitacao.page';
 const routes: Routes = [
   {
     path: '',
-    component: SolicitacaoPage
+    component: SolicitacaoPage,   
+    
   }
-];
+]
 
 @NgModule({
   imports: [
