@@ -45,7 +45,7 @@ export class UsuarioService {
                 );
    */
   login(matricula: string, senha: string): Observable<Usuario>{
-    return this.http.post<Usuario>(`${this.API}/login`, {'matricual':matricula, 'senha':senha}).pipe(take(1));
+    return this.http.post<Usuario>(`${this.API}/login`, {'matricula':matricula, 'senha':senha}).pipe(take(1));
   }
 
   /**

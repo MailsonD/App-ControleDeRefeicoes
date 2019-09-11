@@ -1,10 +1,10 @@
 export class Usuario{
     constructor(
-        private matricula?: string,
-        private senha?: string,
-        private email?: string,
-        private nome?: string,
-        private nivelAcesso?: string,
-        private ativo?: boolean
+        public matricula?: string,
+        public senha?: string,
+        public email?: string,
+        public nome?: string,
+        public nivelAcesso?: string,
+        public ativo?: boolean
     ){}
 }
