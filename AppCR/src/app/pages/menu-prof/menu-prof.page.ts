@@ -26,7 +26,7 @@ export class MenuProfPage implements OnInit {
     },
     {
       title: 'Logout',
-      url: '/tabs/tab1/view',
+      url: '/publico/tabs/tab1/view',
       icon: 'power'
     }
   ]

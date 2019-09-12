@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
     this.usuarioService.login(this.loginForm.value['matricula'], this.loginForm.value['senha']).then((usuario: Usuario) => {
       console.log(usuario);
       if(usuario.nivelAcesso === 'PROFESSOR'){
-        this.router.navigate(['menu-prof']);
+        this.router.navigate(['menu-prof/solicitacao']);
         this.session.createSession(usuario);
       }else if(usuario.nivelAcesso === 'GESTOR'){
         this.router.navigate(['estatisticas']);
