@@ -41,8 +41,9 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1/view',
-    pathMatch: 'full'
+    component: TabsPage,
+    loadChildren: () =>
+      import('./view-publica/view-publica.module').then(m => m.ViewPublicaPageModule)
   }
 ];
 
@@ -50,4 +51,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

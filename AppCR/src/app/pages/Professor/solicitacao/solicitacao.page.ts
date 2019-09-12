@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Usuario } from './../../../models/Usuario';
+import { SessionService } from './../../../services/session.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -6,15 +9,25 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './solicitacao.page.html',
   styleUrls: ['./solicitacao.page.scss'],
 })
-export class SolicitacaoPage implements OnInit {
+export class SolicitacaoPage implements OnInit, OnDestroy {
 
-  
-  constructor() {   
-    
-    
+  subscription: Subscription;
+  usuario: Usuario;
 
+  constructor(
+    private session: SessionService
+  ) {
   }
-  ngOnInit() {
+
+
+  ngOnInit(): void {
+    this.subscription = this.session.$usuario.subscribe(user => {
+      this.usuario = user;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

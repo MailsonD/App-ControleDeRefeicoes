@@ -13,6 +13,12 @@ const routes: Routes = [
     component: MenuProfPage,
     children: [
       {
+        path: '',
+        loadChildren: () =>
+        import('../Professor/solicitacao/solicitacao.module').then(m => m.SolicitacaoPageModule),
+                   
+      },
+      {
         path: 'solicitacao',
         loadChildren: () =>
         import('../Professor/solicitacao/solicitacao.module').then(m => m.SolicitacaoPageModule),
