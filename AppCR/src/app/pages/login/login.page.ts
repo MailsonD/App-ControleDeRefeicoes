@@ -1,3 +1,4 @@
+import { SessionService } from './../../services/session.service';
 import { Usuario } from './../../models/Usuario';
 import { UsuarioService } from './../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,8 @@ export class LoginPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
-    private router: Router
+    private router: Router,
+    private session: SessionService
   ) {
 
   }
@@ -29,12 +31,17 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.usuarioService.login(this.loginForm.value['matricula'], this.loginForm.value['senha']).toPromise().then((usuario: Usuario) => {
+    this.usuarioService.login(this.loginForm.value['matricula'], this.loginForm.value['senha']).then((usuario: Usuario) => {
       console.log(usuario);
       if(usuario.nivelAcesso === 'PROFESSOR'){
+        this.router.navigate(['menu-prof']);
+        this.session.createSession(usuario);
+      }else if(usuario.nivelAcesso === 'GESTOR'){
         this.router.navigate(['estatisticas']);
+        this.session.createSession(usuario);
       }
     }).catch(err => {
+      console.log(this.loginForm.value['matricula'], this.loginForm.value['senha']);
       console.log(err);
     });
   }
