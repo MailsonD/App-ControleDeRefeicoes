@@ -32,16 +32,17 @@ export class LoginPage implements OnInit {
 
   login() {
     this.usuarioService.login(this.loginForm.value['matricula'], this.loginForm.value['senha']).then((usuario: Usuario) => {
-      console.log(usuario);
       if(usuario.nivelAcesso === 'PROFESSOR'){
+        console.log("professor logado");
         this.router.navigate(['menu-prof/solicitacao']);
         this.session.createSession(usuario);
       }else if(usuario.nivelAcesso === 'GESTOR'){
+        console.log("gestor logado");
         this.router.navigate(['estatisticas']);
         this.session.createSession(usuario);
       }
     }).catch(err => {
-      console.log(this.loginForm.value['matricula'], this.loginForm.value['senha']);
+      console.log("error login");
       console.log(err);
     });
   }
