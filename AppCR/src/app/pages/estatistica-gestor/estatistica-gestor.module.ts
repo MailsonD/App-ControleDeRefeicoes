@@ -9,8 +9,7 @@ import { EstatisticaGestorPage } from './estatistica-gestor.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: EstatisticaGestorPage
+    path: '', component: EstatisticaGestorPage
   }
 ];
 
