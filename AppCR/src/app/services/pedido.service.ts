@@ -1,11 +1,11 @@
-import { TipoBeneficio } from './../models/TipoBeneficio';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { take } from 'rxjs/operators';
 import { Pedido } from '../models/Pedido';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Aluno } from '../models/Aluno';
+import { TipoBeneficio } from '../models/enums/TipoBeneficio';
 
 /**
  * @author leanderson.coelhoif@gmail.com
@@ -18,6 +18,8 @@ import { Aluno } from '../models/Aluno';
 export class PedidoService {
 
   private readonly API = `${environment.API}/pedido`;
+  private _pedido: BehaviorSubject<Pedido> = new BehaviorSubject<Pedido>({});
+  $pedido: Observable<Pedido> = this._pedido.asObservable();
 
   constructor(
     private http: HttpClient
@@ -58,8 +60,9 @@ export class PedidoService {
         );
       }
    */
-  create(pedido: Pedido): Observable<Object> {
-    return this.http.post(this.API, pedido).pipe(take(1));
+  create(pedido: Pedido): Promise<Object> {
+    console.log("entrou aqui")
+    return this.http.post(this.API, pedido).toPromise();//.pipe(take(1));
   }
 
   /**
@@ -171,4 +174,10 @@ export class PedidoService {
   mealResult(beneficio: TipoBeneficio): Observable<Aluno[]> {
     return this.http.get<Aluno[]>(`${this.API}/resultado/${beneficio}`).pipe(take(1));
   }
+
+  sendFirstPart(pedido:Pedido){
+    this._pedido.next(pedido);
+    console.log("Primeira parte da solicitação criada.");
+  }
+
 }

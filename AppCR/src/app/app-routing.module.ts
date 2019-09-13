@@ -10,6 +10,9 @@ const routes: Routes = [
   { path: 'publico', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [BackAuthGuard] },
   { path: 'menu-prof', loadChildren: './pages/menu-prof/menu-prof.module#MenuProfPageModule', canActivate: [ProfessorAuthGuard] },
   { path: 'estatisticas', loadChildren: './pages/estatistica-gestor/estatistica-gestor.module#EstatisticaGestorPageModule' },
+  { path: 'solicitacao', loadChildren: './pages/Professor/solicitacao/solicitacao.module#SolicitacaoPageModule' },
+  // { path: '', loadChildren: './pages/Professor/solicitacao/solicitacao.module#SolicitacaoPageModule', pathMatch: 'full' },
+  { path: 'solicitacao2', loadChildren: './pages/Professor/solicitacao2/solicitacao2.module#Solicitacao2PageModule' },
 ];
 
 @NgModule({

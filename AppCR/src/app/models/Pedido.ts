@@ -3,16 +3,15 @@ import { Usuario } from './Usuario';
 
 export class Pedido{
     constructor(
-        private id?: number,
-        private usuario?: Usuario,
-        private justificativa?: string,
-        private diaSolicitado?: Date,
-        private turma?: string,
-        private statusPedido?: string,
-        private tipoBeneficion?: string,
-        private alunos?: Aluno[],
-        private justificativaCAEST?: string
+        // public id?: number,
+        public matriculaProfessor?: string,
+        public justificativa?: string,
+        public diaSolicitado?: string,//////estava Date
+        public turma?: string,
+        // public statusPedido?: string,//
+        public tipoBeneficio?: string,
+        public alunos?: Aluno[],
+        // public justificativaCAEST?: string//
     ){
-        this.alunos = [];
     }
 }
