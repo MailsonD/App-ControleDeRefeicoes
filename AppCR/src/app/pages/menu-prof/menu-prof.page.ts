@@ -1,3 +1,4 @@
+import { SessionService } from './../../services/session.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -25,14 +26,20 @@ export class MenuProfPage implements OnInit {
     },
     {
       title: 'Logout',
-      url: '/tabs/tab1/view',
+      url: '/publico/tabs/tab1/view',
       icon: 'power'
     }
   ]
 
-  constructor() { }
+  constructor(
+    private session: SessionService
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout(title: string){
+    return title === 'Logout' ? this.session.invalidateSession() : null; 
   }
 
 }

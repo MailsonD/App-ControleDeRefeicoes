@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { Usuario } from '../models/Usuario';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 /**
  * @author leanderson.coelhoif@gmail.com
@@ -15,6 +15,8 @@ import { Observable } from 'rxjs';
 export class UsuarioService {
 
   private readonly API = `${environment.API}/usuario`;
+  private _usuario: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>({});
+  $usuario: Observable<Usuario> = this._usuario.asObservable(); 
 
   constructor(
     private http: HttpClient
@@ -32,20 +34,15 @@ export class UsuarioService {
    * @param senha Senha do usuário.
    * @returns `Observable<Usuario>`
    * 
-   * {@example this.service.login('123', '123').subscribe(
-                  (data: Usuario) => {
-                    console.log(data);
-                  },
-                  error => {
-                    console.log(error);
-                  },
-                  () => {
-                    console.log('request completed');
-                  }
-                );
+   * {@example this.service.login('','').then((user: Usuario) => {
+                  console.log(user);
+                }).catch(err => console.log)
+                .finally(() => {
+                  console.log('ok');
+                })
    */
-  login(matricula: string, senha: string): Observable<Usuario>{
-    return this.http.post<Usuario>(`${this.API}/login`, {'matricula':matricula, 'senha':senha}).pipe(take(1));
+  login(matricula: string, senha: string): Promise<Usuario>{
+    return this.http.post<Usuario>(`${this.API}/login`, {'matricula':matricula, 'senha':senha}).toPromise();
   }
 
   /**
