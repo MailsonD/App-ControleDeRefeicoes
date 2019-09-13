@@ -10,14 +10,18 @@
   
   <ion-content>
 
-      <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
-          <string>You can take photos</string>
-         </config-file>
+    <div class="ion-margin-vertical">
+      
+     
 
-     <div class="ion-margin-vertical">
-        <img  class="redondo" src="../../../assets/img/madison.jpg" />  
+      <img  class="redondo" [src]="capturedSnapURL" />  
 
-     </div>
+      <ion-button (click)="takeSnap()">
+        Abrir camera
+      </ion-button>
+
+   </div>
+
 
     <ion-card class="background-color"  >
       <ion-row class="ion-align-items-center">
