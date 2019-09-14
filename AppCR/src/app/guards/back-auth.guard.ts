@@ -25,11 +25,11 @@ export class BackAuthGuard implements CanActivate {
         console.log(autenticado);
         await this.appPreferences.fetch(environment.SHARED_PREFERENCES_DIRECTORY, environment.TIPO_ACESSO).then(tipoAcesso => {
           if(tipoAcesso === 'PROFESSOR'){
-            this.router.navigate(['menu-prof/solicitacao']);
+            this.router.navigate(['/menu-prof/solicitacao']);
             console.log(tipoAcesso);
             console.log("SharedPreferences: redirecionando para pagina de professor");
           }else if(tipoAcesso === 'GESTOR'){
-            this.router.navigate(['estatisticas']);
+            this.router.navigate(['/gestor/estatisticas']);
             console.log(tipoAcesso);
             console.log("SharedPreferences: redirecionando para pagina de gestor");
           }
