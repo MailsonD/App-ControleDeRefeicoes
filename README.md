@@ -1,8 +1,9 @@
 # App-ControleDeRefeicoes
 
 ## Firebase
-` npm install @ionic-native/firebasex`
-` sudo npm install -g cordova@9 `
+`npm install @ionic-native/firebasex`  
+
+`sudo npm install -g cordova@9`
 #### Se tiver a pasta android já gerada
 ` cordova platform remove android `
 #### Continua
