@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'http://192.168.0.119:8080/Controle-De-Refeicoes/api',
+  API: 'http://localhost:8080/api',
   SHARED_PREFERENCES_DIRECTORY: "appPreferencesFile",
   SESSAO_ATIVA: "sessaoAtiva",
   TIPO_ACESSO: "tipoAcesso"
