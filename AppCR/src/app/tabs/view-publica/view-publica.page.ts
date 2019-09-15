@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Injectable } from '@angular/core';
+import { PedidoService } from '../../services/pedido.service';
+import { Observable } from 'rxjs';
+import { TipoBeneficio } from 'src/app/models/TipoBeneficio';
 
 @Component({
   selector: 'app-view-publica',
@@ -7,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPublicaPage implements OnInit {
 
-  public valor: Number;
+  public valor: number;
   public items: string[];
 
-  constructor() { 
-    this.valor = 450;
+  constructor(public pedidoService:PedidoService) { 
+
     this.items = [
       "Caio Guilherme",
       "Caique Vitoriano",
@@ -26,6 +29,12 @@ export class ViewPublicaPage implements OnInit {
   }
 
   ngOnInit() {
+    this.pedidoService.total().subscribe( 
+      (res:number) =>{
+        this.valor = res['quantidade'];
+        
+    })
+    
   }
 
 }
