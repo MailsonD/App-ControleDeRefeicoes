@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalhes da Solicitação</ion-title>
+    <ion-buttons slot="end" (click)="close()">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngIf="pedido.justificativaCAEST!=undefined ||  pedido.justificativaCAEST!=null">
+    <ion-card-header>
+      <ion-card-title>Justificativa de Recusa da Solicitação</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text>
+        <h2>{{pedido.justificativaCAEST}}</h2>
+        <h2 *ngIf="pedido.justificativaCAEST==''">Não há justificativa da CAEST</h2>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Justificativa da Solicitação({{tipoBeneficio[pedido.tipoBeneficio]}})</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text>
+        <h2>{{pedido.justificativa}}</h2>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            TURMA
+          </ion-col>
+          <ion-col>
+            STATUS
+          </ion-col>
+          <ion-col>
+            DATA
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                {{pedido.turma}}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                {{pedido.statusPedido}}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                {{pedido.diaSolicitado}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detalhes do Pedido</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            MATRICULA
+          </ion-col>
+          <ion-col>
+            NOME
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-grid>
+          <ion-row *ngFor="let a of pedido.alunos">
+            <ion-col>
+              <ion-label>
+                {{a.matricula}}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                {{a.nome}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -60,9 +60,8 @@ export class PedidoService {
         );
       }
    */
-  create(pedido: Pedido): Promise<Object> {
-    console.log("entrou aqui")
-    return this.http.post(this.API, pedido).toPromise();//.pipe(take(1));
+  create(pedido: Pedido): Observable<Object> {
+    return this.http.post(this.API, pedido).pipe(take(1));
   }
 
   /**
@@ -90,7 +89,7 @@ export class PedidoService {
                 );
    */
   orderOfTeacher(matriculaProfessor: string, pagina: number): Observable<Pedido[]>{
-    return this.http.get<Pedido[]>(`${this.API}/professor/${matriculaProfessor}?page=${pagina}`).pipe(take(1));
+    return this.http.get<Pedido[]>(`${this.API}/professor/${matriculaProfessor}?pagina=${pagina}`).pipe(take(1));
   }
 
   /**
@@ -118,8 +117,16 @@ export class PedidoService {
                   }
                 );
    */
-  orderFiltered(matriculaProfessor: string, pagina: number, data: Date): Observable<Pedido[]>{
-    return this.http.get<Pedido[]>(`${this.API}/professor/${matriculaProfessor}?page=${pagina}&data=${data}`).pipe(take(1));
+  orderFiltered(matriculaProfessor: string, pagina: number, data: string, status:string): Observable<Pedido[]>{
+    return this.http.get<Pedido[]>(`${this.API}/professor/${matriculaProfessor}?pagina=${pagina}&data=${data}&statusPedido=${status}`).pipe(take(1));
+  }
+
+  orderFilteredByDate(matriculaProfessor: string, pagina: number, data: string): Observable<Pedido[]>{
+    return this.http.get<Pedido[]>(`${this.API}/professor/${matriculaProfessor}?pagina=${pagina}&data=${data}`).pipe(take(1));
+  }
+
+  orderFilteredByStatus(matriculaProfessor: string, pagina: number, status:string): Observable<Pedido[]>{
+    return this.http.get<Pedido[]>(`${this.API}/professor/${matriculaProfessor}?pagina=${pagina}&statusPedido=${status}`).pipe(take(1));
   }
 
   /**
@@ -173,6 +180,10 @@ export class PedidoService {
    */
   mealResult(beneficio: TipoBeneficio): Observable<Aluno[]> {
     return this.http.get<Aluno[]>(`${this.API}/resultado/${beneficio}`).pipe(take(1));
+  }
+
+  delete(idPedido:number){
+    return this.http.delete(`${this.API}/${idPedido}`).pipe(take(1));
   }
 
   sendFirstPart(pedido:Pedido){

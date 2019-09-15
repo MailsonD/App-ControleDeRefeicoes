@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'solicitacao', loadChildren: './pages/Professor/solicitacao/solicitacao.module#SolicitacaoPageModule' },
   // { path: '', loadChildren: './pages/Professor/solicitacao/solicitacao.module#SolicitacaoPageModule', pathMatch: 'full' },
   { path: 'solicitacao2', loadChildren: './pages/Professor/solicitacao2/solicitacao2.module#Solicitacao2PageModule' },
+  { path: 'historico', loadChildren: './pages/Professor/historico/historico.module#HistoricoPageModule' },
 ];
 
 @NgModule({

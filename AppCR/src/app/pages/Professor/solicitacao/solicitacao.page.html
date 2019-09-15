@@ -25,7 +25,8 @@
         </ion-item>
         <ion-item>
           <ion-label> Data </ion-label>
-          <ion-datetime formControlName="data" display-format="DD/MM/YYYY" min="2019-01-01" max="2021-01-01">
+          <ion-datetime formControlName="data" display-format="DD/MM/YYYY"
+           min="2019-01-01" max="2021-01-01"  [pickerOptions]="customOptions">
           </ion-datetime>
         </ion-item>
         <ion-item>

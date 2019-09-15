@@ -4,6 +4,7 @@ import { Subscription, Observable, observable } from 'rxjs';
 import { Pedido } from './../../../models/Pedido';
 import { PedidoService } from './../../../services/pedido.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-solicitacao2',
@@ -20,6 +21,7 @@ export class Solicitacao2Page implements OnInit, OnDestroy {
   constructor(
     private pedidoService: PedidoService,
     private formBuilder: FormBuilder,
+    public toastController: ToastController,
   ) { }
 
   ngOnInit() {
@@ -42,10 +44,14 @@ export class Solicitacao2Page implements OnInit, OnDestroy {
     this.aluno = new Aluno();
     this.aluno.nome = this.alunoForm.value["nome"];
     this.aluno.matricula = this.alunoForm.value["matricula"];
-    this.alunos.push(this.aluno);
-    this.alunoForm.setValue({ "nome": null, "matricula": null });
-    console.log("Aluno adicionado.");
-
+    
+    if(this.alunos.find(a=>{return a.matricula == this.aluno.matricula}) == undefined){
+      this.alunos.push(this.aluno);
+      this.alunoForm.setValue({ "nome": null, "matricula": null });
+      console.log("Aluno adicionado.");
+    }else{
+      this.presentToast("Aluno com esta matricula já existe");
+    }
   }
 
   deleteAlunoFromArray(i: number) {
@@ -60,6 +66,14 @@ export class Solicitacao2Page implements OnInit, OnDestroy {
 
   send() {
     this.pedido.alunos = this.alunos;
-    this.pedidoService.create(this.pedido).then(res => console.log(res));
+    this.pedidoService.create(this.pedido);
+    this.presentToast("Pedido cadastrado com sucesso!");
+  }
+  async presentToast(mensagem:string) {
+    const toast = await this.toastController.create({
+      message: mensagem,
+      duration: 2000
+    });
+    toast.present();
   }
 }
