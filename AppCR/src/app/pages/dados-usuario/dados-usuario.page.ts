@@ -8,7 +8,6 @@ import { Subscription } from 'rxjs';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
 
-
 @Component({
   selector: 'app-dados-usuario',
   templateUrl: './dados-usuario.page.html',
