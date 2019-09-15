@@ -6,6 +6,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -15,23 +16,27 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class DadosUsuarioPage implements OnInit, OnDestroy {
 
+  private readonly BASE_64: string = 'data:image/jpeg;base64,';
   usuarioForm: FormGroup;
   usuario: Usuario;
   subscription: Subscription;
   capturedSnapURL:string;
+  output = '';
+  
 
   cameraOptions: CameraOptions = {
     quality: 20,
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE
+    mediaType: this.camera.MediaType.PICTURE,
   }
 
   constructor(
     private session: SessionService,
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
-    private camera: Camera
+    private camera: Camera,
+    private storage: Storage
   ) {
     
   }
@@ -65,17 +70,28 @@ export class DadosUsuarioPage implements OnInit, OnDestroy {
     });
   }
 
-  takeSnap() {
+  salvar() {
     this.camera.getPicture(this.cameraOptions).then((imageData) => {
-      // this.camera.DestinationType.FILE_URI gives file URI saved in local
-      // this.camera.DestinationType.DATA_URL gives base64 URI
-      
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-      this.capturedSnapURL = base64Image;
+      this.storage.set('fotoUsuario', imageData).then(() => {
+        alert('Foto salva');
+      }).catch(err => {
+        alert('Falha na salvagem');
+        console.log(err);
+      });
     }, (err) => {
-      
+      alert('Falha na camera');
       console.log(err);
-      // Handle error
+    });
+  }
+
+  exibir(){
+    this.storage.get('fotoUsuario').then(data => {
+      this.output = this.BASE_64 + data;
+      console.log("foto -> "+data);
+      alert('Pegou a foto');
+    }).catch(err => {
+      alert('Falha no get');
+      console.log(err);
     });
   }
 

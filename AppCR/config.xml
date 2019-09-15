@@ -102,4 +102,6 @@
     <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
         <string>You can take photos</string>
     </config-file>
+    <plugin name="cordova-sqlite-storage" spec="^3.3.0" />
+    <engine name="android" spec="^8.0.0" />
 </widget>
