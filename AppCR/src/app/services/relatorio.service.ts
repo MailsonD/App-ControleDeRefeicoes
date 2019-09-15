@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class RelatorioService {
 
-  private readonly API = `${environment.API}/relatorio`;
+  private readonly API = `${environment.API}/estatistica`;
 
   constructor(
     private http: HttpClient
