@@ -96,8 +96,8 @@ export class UsuarioService {
                   }
                 );
    */
-  passwordChange(usuario: Usuario, senha: string): Observable<Usuario>{
-    return this.http.put<Usuario>(`${this.API}/alterarSenha`, { 'usuario':usuario, 'senha': senha }).pipe(take(1));
+  passwordChange(matricula: string, senha: string, novaSenha: string): Promise<Usuario>{
+    return this.http.put<Usuario>(`${this.API}/alterar-senha`, { 'matricula':matricula, 'senhaAntiga': senha, 'senhaNova': novaSenha }).toPromise();
   }
 
 }

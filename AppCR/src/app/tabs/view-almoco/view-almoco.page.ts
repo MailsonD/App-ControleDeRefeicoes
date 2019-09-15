@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonTabs } from '@ionic/angular';
+import { PedidoService } from '../../services/pedido.service';
+import { TipoBeneficio } from 'src/app/models/TipoBeneficio';
+import { Aluno } from '../../models/Aluno';
 
 @Component({
   selector: 'app-view-almoco',
@@ -9,25 +12,21 @@ import { IonTabs } from '@ionic/angular';
 export class ViewAlmocoPage implements OnInit {
 
   public valor: number;
-  public items: string[];
+  public alunos: Aluno[];
 
   public barraDePesquisaAberta = false;
 
-  constructor() { 
-    this.valor = 612;
-    this.items = [
-      "Menino 1 - 201522121456",
-      "Menino 2 - 201522184564",
-      "Menino 3 - 201241414141",
-      "Menino 4 - 201241241241",
-      "Menino 5 - 202214241241",
-      "Menino 6 - 201341411212",
-      "Menino 7 - 203414141334",
-      "Menino 8 - 201123123231"
-    ]
+  constructor(private pedidoService:PedidoService) { 
+    
   }
 
   ngOnInit() {
+    this.pedidoService.mealResult(TipoBeneficio.ALMOCO).subscribe(
+      (res:Aluno[]) =>{
+        this.alunos = res;
+        this.valor = this.alunos.length;
+      }
+    )
   }
 
 }

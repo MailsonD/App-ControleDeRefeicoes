@@ -14,9 +14,14 @@ const routes: Routes = [
     component: MenuPage,
     children: [
       {
-        path: 'estatistica-gestor',
+        path: '',
         loadChildren: () =>
-          import('../estatistica-gestor/estatistica-gestor.module').then(m => m.EstatisticaGestorPageModule)
+          import('./estatistica-gestor/estatistica-gestor.module').then(m => m.EstatisticaGestorPageModule)
+      },
+      {
+        path: 'estatisticas',
+        loadChildren: () =>
+          import('./estatistica-gestor/estatistica-gestor.module').then(m => m.EstatisticaGestorPageModule)
       },
       {
         path: 'dados-usuario',        
@@ -26,7 +31,7 @@ const routes: Routes = [
       {
         path: 'historico',        
         loadChildren: () =>
-          import('../Professor/historico/historico.module').then(n => n.HistoricoPageModule)
+          import('../menu-professor/historico/historico.module').then(n => n.HistoricoPageModule)
       }
     ]
   },

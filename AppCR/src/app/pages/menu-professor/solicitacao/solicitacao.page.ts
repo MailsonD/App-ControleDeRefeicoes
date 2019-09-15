@@ -1,5 +1,5 @@
-import { Usuario } from './../../../models/Usuario';
-import { SessionService } from './../../../services/session.service';
+import { Usuario } from '../../../models/Usuario';
+import { SessionService } from '../../../services/session.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
