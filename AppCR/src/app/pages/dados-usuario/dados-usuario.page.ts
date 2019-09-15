@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -10,31 +11,47 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class DadosUsuarioPage implements OnInit {
 
-  capturedSnapURL:string;
+  private readonly base = 'data:image/jpeg;base64,';
+  output: string;
 
   cameraOptions: CameraOptions = {
     quality: 20,
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE
+    mediaType: this.camera.MediaType.PICTURE,
   }
 
-  constructor(private camera: Camera) { }
+  constructor(
+    private camera: Camera,
+    private storage: Storage
+  ) { }
 
   ngOnInit() {
+    this.output = '';
   }
 
-  takeSnap() {
+  salvar() {
     this.camera.getPicture(this.cameraOptions).then((imageData) => {
-      // this.camera.DestinationType.FILE_URI gives file URI saved in local
-      // this.camera.DestinationType.DATA_URL gives base64 URI
-      
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-      this.capturedSnapURL = base64Image;
+      this.storage.set('fotoUsuario', imageData).then(() => {
+        alert('Foto salva');
+      }).catch(err => {
+        alert('Falha na salvagem');
+        console.log(err);
+      });
     }, (err) => {
-      
+      alert('Falha na camera');
       console.log(err);
-      // Handle error
+    });
+  }
+
+  exibir(){
+    this.storage.get('fotoUsuario').then(data => {
+      this.output = this.base + data;
+      console.log("foto -> "+data);
+      alert('Pegou a foto');
+    }).catch(err => {
+      alert('Falha no get');
+      console.log(err);
     });
   }
 

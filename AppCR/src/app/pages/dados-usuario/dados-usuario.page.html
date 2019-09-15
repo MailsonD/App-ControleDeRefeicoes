@@ -1,87 +1,91 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Danos</ion-title>  
-      <ion-buttons slot="start">
-          <ion-menu-button autoHide="false"></ion-menu-button>
-        </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  
-  <ion-content>
-    
+  <ion-toolbar>
+    <ion-title>Danos</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 
-     <div class="ion-margin-vertical">
-        <ion-button (click)="takeSnap()">
-            Take Snap
-          </ion-button>    
-         
-        <img  class="redondo" [src]="capturedSnapURL" />  
+<ion-content>
 
-     </div>
-    <ion-card class="background-color"  >
-      <ion-row class="ion-align-items-center">
-        
-        <ion-col size="12">
-          <div>
-            <ion-item>
-              <ion-label position="stacked">Matricula</ion-label>
-              <ion-input type="number" value="11111" disabled>
-              </ion-input>
-            </ion-item>
-          </div>
-  
-        </ion-col>
-        <ion-col size="12">
-            <div>
-              <ion-item>
-                <ion-label position="stacked">Nome</ion-label>
-                <ion-input type="text" value="Pessoinha Junior" disabled>
-                </ion-input>
-              </ion-item>
-            </div>
-    
-          </ion-col>
-  
-        <ion-col size="12">
-          <div>
-            <ion-item>
-              <ion-label position="stacked">Senha Atual</ion-label>
-              <ion-input type="password" value="senha atual">
-              </ion-input>
-            </ion-item>
-          </div>
-        </ion-col>
 
-        <ion-col size="12">
-            <div>
-              <ion-item>
-                <ion-label position="stacked">Nova Senha</ion-label>
-                <ion-input type="password" value="senha atual">
-                </ion-input>
-              </ion-item>
-            </div>
-          </ion-col>
-        
-  
-      </ion-row>
-  
-      <ion-row class="ion-align-items-center">
-        <ion-col size="12">
-          <div>
-            <ion-button color="success" expand="block">Salvar</ion-button>
-          </div>
-        </ion-col>
-        
-  
-      </ion-row>
-  
-        
-  
-    </ion-card> 
-  
-  
-  
-  
-  </ion-content>
+
+  <div class="ion-margin-vertical">
+    <ion-button (click)="salvar()">
+      Salvar
+    </ion-button>
+    <ion-button (click)="exibir()">
+      Exibir
+    </ion-button>
+
+    <img class="redondo" [src]="output" />
+
+  </div>
+
+  <ion-card class="background-color">
+    <ion-row class="ion-align-items-center">
+
+      <ion-col size="12">
+        <div>
+          <ion-item>
+            <ion-label position="stacked">Matricula</ion-label>
+            <ion-input type="number" value="11111" disabled>
+            </ion-input>
+          </ion-item>
+        </div>
+
+      </ion-col>
+      <ion-col size="12">
+        <div>
+          <ion-item>
+            <ion-label position="stacked">Nome</ion-label>
+            <ion-input type="text" value="Pessoinha Junior" disabled>
+            </ion-input>
+          </ion-item>
+        </div>
+
+      </ion-col>
+
+      <ion-col size="12">
+        <div>
+          <ion-item>
+            <ion-label position="stacked">Senha Atual</ion-label>
+            <ion-input type="password" value="senha atual">
+            </ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+
+      <ion-col size="12">
+        <div>
+          <ion-item>
+            <ion-label position="stacked">Nova Senha</ion-label>
+            <ion-input type="password" value="senha atual">
+            </ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+
+
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12">
+        <div>
+          <ion-button color="success" expand="block">Salvar</ion-button>
+        </div>
+      </ion-col>
+
+
+    </ion-row>
+
+
+
+  </ion-card>
+
+
+
+
+</ion-content>
