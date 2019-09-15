@@ -16,6 +16,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
