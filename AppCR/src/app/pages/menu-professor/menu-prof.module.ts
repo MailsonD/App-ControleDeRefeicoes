@@ -15,19 +15,19 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-        import('../Professor/solicitacao/solicitacao.module').then(m => m.SolicitacaoPageModule),
+        import('./solicitacao/solicitacao.module').then(m => m.SolicitacaoPageModule),
                    
       },
       {
         path: 'solicitacao',
         loadChildren: () =>
-        import('../Professor/solicitacao/solicitacao.module').then(m => m.SolicitacaoPageModule),
+        import('./solicitacao/solicitacao.module').then(m => m.SolicitacaoPageModule),
                    
       },
       {
         path: 'solicitacao2',
         loadChildren: () =>
-        import('../Professor/solicitacao2/solicitacao2.module').then(m => m.Solicitacao2PageModule)  
+        import('./solicitacao2/solicitacao2.module').then(m => m.Solicitacao2PageModule)  
             
       },
       {
@@ -38,7 +38,7 @@ const routes: Routes = [
       {
         path: 'historico',
         loadChildren: () =>
-          import('../Professor/historico/historico.module').then(n => n.HistoricoPageModule)
+          import('./historico/historico.module').then(n => n.HistoricoPageModule)
       }
     ]
   },

@@ -45,7 +45,6 @@ export class HistoricoPage implements OnInit {
   }
 
   async details(index: number) {
-    console.log(index);
 
     const modal = await this.modalController.create({
       component: ModalDetalhesComponent,

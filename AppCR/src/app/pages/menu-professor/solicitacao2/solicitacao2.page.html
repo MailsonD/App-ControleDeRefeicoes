@@ -74,7 +74,7 @@
       <ion-card-subtitle>Confira as informações antes de enviar</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-button color="success" expand="block" (click)="send()">
+      <ion-button color="success" expand="block" [disabled]="alunos.length==0" (click)="send()">
         Enviar Solicitação
       </ion-button>
     </ion-card-content>

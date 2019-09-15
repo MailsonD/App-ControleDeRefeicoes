@@ -5,6 +5,7 @@ import { Pedido } from './../../../models/Pedido';
 import { PedidoService } from './../../../services/pedido.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-solicitacao2',
@@ -22,12 +23,13 @@ export class Solicitacao2Page implements OnInit, OnDestroy {
     private pedidoService: PedidoService,
     private formBuilder: FormBuilder,
     public toastController: ToastController,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.alunoForm = this.formBuilder.group({
       "nome": [null, [Validators.required]],
-      "matricula": [null, [Validators.required]]//Colocar quantidade mínima depois!!!!!!!!!
+      "matricula": [null, [Validators.required]]
     });
 
     this.subscription = this.pedidoService.$pedido.subscribe(p => {
@@ -66,8 +68,9 @@ export class Solicitacao2Page implements OnInit, OnDestroy {
 
   send() {
     this.pedido.alunos = this.alunos;
-    this.pedidoService.create(this.pedido);
+    this.pedidoService.create(this.pedido).subscribe(res=>console.log);
     this.presentToast("Pedido cadastrado com sucesso!");
+    this.router.navigate(['/menu-prof/solicitacao']);
   }
   async presentToast(mensagem:string) {
     const toast = await this.toastController.create({

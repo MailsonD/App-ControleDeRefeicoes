@@ -34,11 +34,11 @@ export class LoginPage implements OnInit {
     this.usuarioService.login(this.loginForm.value['matricula'], this.loginForm.value['senha']).then((usuario: Usuario) => {
       if(usuario.nivelAcesso === 'PROFESSOR'){
         console.log("professor logado");
-        this.router.navigate(['menu-prof/solicitacao']);
+        this.router.navigate(['/menu-prof/solicitacao']);
         this.session.createSession(usuario);
       }else if(usuario.nivelAcesso === 'GESTOR'){
         console.log("gestor logado");
-        this.router.navigate(['estatisticas']);
+        this.router.navigate(['/gestor/estatisticas']);
         this.session.createSession(usuario);
       }
     }).catch(err => {

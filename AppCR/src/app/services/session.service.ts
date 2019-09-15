@@ -20,6 +20,10 @@ export class SessionService {
     private appPreferences: AppPreferences
   ) { }
 
+  /**
+   * @description Cria uma nova sessão
+   * @param usuario Novo usuário de sessão
+   */
   createSession(usuario: Usuario): void {
     this._usuario.next(usuario);
     this.appPreferences.store(environment.SHARED_PREFERENCES_DIRECTORY, environment.SESSAO_ATIVA, true)
@@ -30,6 +34,9 @@ export class SessionService {
       .catch(err => console.log("SharedPreferences: Falha: ", err));
   }
 
+  /**
+   * @description Finaliza uma sessão
+   */
   invalidateSession(): void {
     this._usuario.next(null);
     this.appPreferences.remove(environment.SHARED_PREFERENCES_DIRECTORY, environment.SESSAO_ATIVA)
@@ -38,5 +45,13 @@ export class SessionService {
     this.appPreferences.remove(environment.SHARED_PREFERENCES_DIRECTORY, environment.TIPO_ACESSO)
       .then(() => console.log("SharedPreferences: Tipo de acesso iniciada."))
       .catch(err => console.log("SharedPreferences: Falha: ", err));
+  }
+
+  /**
+   * @description Atualiza a sessão
+   * @param usuario Novo usuário de sessão
+   */
+  nextSession(usuario: Usuario){
+    this._usuario.next(usuario);
   }
 }

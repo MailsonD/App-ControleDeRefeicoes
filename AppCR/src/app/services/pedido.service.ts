@@ -178,7 +178,7 @@ export class PedidoService {
                   }
                 );
    */
-  mealResult(beneficio: TipoBeneficio): Observable<Aluno[]> {
+  mealResult(beneficio: string): Observable<Aluno[]> {
     return this.http.get<Aluno[]>(`${this.API}/resultado/${beneficio}`).pipe(take(1));
   }
 

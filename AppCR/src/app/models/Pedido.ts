@@ -1,5 +1,5 @@
+import { JustificativaCAEST } from './JustificativaCAEST';
 import { Aluno } from './Aluno';
-import { Usuario } from './Usuario';
 
 export class Pedido{
     constructor(
@@ -11,7 +11,7 @@ export class Pedido{
         public statusPedido?: string,//
         public tipoBeneficio?: string,
         public alunos?: Aluno[],
-        public justificativaCAEST?: string//
+        public justificativaCAEST?: JustificativaCAEST//
     ){
     }
 }

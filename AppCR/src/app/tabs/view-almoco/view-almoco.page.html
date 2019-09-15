@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title *ngIf="!barraDePesquisaAberta">Almoço</ion-title>
     <ion-searchbar *ngIf="barraDePesquisaAberta" showCancelButton="true" (ionCancel)="barraDePesquisaAberta=false">
-    </ion-searchbar>  
+    </ion-searchbar>
 
     <ion-buttons slot="end">
       <ion-button *ngIf="!barraDePesquisaAberta" (click)="barraDePesquisaAberta=true">
@@ -15,7 +15,7 @@
 
 <ion-content>
   <ion-card class="background-image">
-    
+
     <ion-card-header>
       <ion-card-title color="light"></ion-card-title>
       <ion-card-subtitle class="text2" color="light">Total de Almoços</ion-card-subtitle>
@@ -27,7 +27,7 @@
       </ion-text>
     </ion-card-content>
   </ion-card>
-  
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>Lista de Alunos</ion-card-title>
@@ -37,9 +37,20 @@
     <ion-card-content>
 
       <ion-list>
-        <ion-item *ngFor="let item of items">
+        <ion-grid class="espacamento">
+          <ion-row>
+            <ion-col>
+              Nome
+            </ion-col>
+            <ion-col>
+              Matricula
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item *ngFor="let aluno of alunos">
           <ion-icon name="person" slot="start"></ion-icon>
-          <ion-label>{{item}}</ion-label>
+          <ion-label>{{aluno.nome}}</ion-label>
+          <ion-label>{{aluno.matricula}}</ion-label>
         </ion-item>
 
       </ion-list>

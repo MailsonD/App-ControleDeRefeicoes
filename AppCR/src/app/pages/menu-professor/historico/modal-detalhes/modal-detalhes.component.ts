@@ -1,6 +1,6 @@
+import { JustificativaCAEST } from './../../../../models/JustificativaCAEST';
 import { ModalController } from '@ionic/angular';
-import { TipoBeneficio } from './../../../../models/enums/TipoBeneficio';
-import { Pedido } from './../../../../models/Pedido';
+import { Pedido } from '../../../../models/Pedido';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -11,7 +11,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ModalDetalhesComponent implements OnInit {
   @Input("pedido") pedido:Pedido;
   tipoBeneficio = {"ALMOCO":"Almoço", "JANTA":"Janta", "AMBOS":"Ambos"};
-  constructor(private modalController:ModalController) { }
+  constructor(private modalController:ModalController) { 
+  }
 
   ngOnInit() {}
 

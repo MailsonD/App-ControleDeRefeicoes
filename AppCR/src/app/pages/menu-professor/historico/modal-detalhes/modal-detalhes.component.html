@@ -7,14 +7,14 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card *ngIf="pedido.justificativaCAEST!=undefined ||  pedido.justificativaCAEST!=null">
+  <ion-card *ngIf="pedido.statusPedido=='RECUSADO'">
     <ion-card-header>
       <ion-card-title>Justificativa de Recusa da Solicitação</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-text>
-        <h2>{{pedido.justificativaCAEST}}</h2>
-        <h2 *ngIf="pedido.justificativaCAEST==''">Não há justificativa da CAEST</h2>
+        <h2>{{pedido.justificativaCAEST.justificativa}}</h2>
+        <h2 *ngIf="pedido.justificativaCAEST.justificativa==''">Não há justificativa.</h2>
       </ion-text>
     </ion-card-content>
   </ion-card>

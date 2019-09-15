@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PedidoService } from '../../services/pedido.service';
+import { Aluno } from '../../models/Aluno';
+import { TipoBeneficio } from '../../models/enums/TipoBeneficio';
 
 @Component({
   selector: 'app-view-janta',
@@ -8,25 +11,21 @@ import { Component, OnInit } from '@angular/core';
 export class ViewJantaPage implements OnInit {
 
   public valor: number;
-  public items: string[];
+  public alunos: Aluno[];
 
   public barraDePesquisaAberta = false;
 
-  constructor() { 
-    this.valor = 42;
-    this.items = [
-      "Menino 1 - 201522121456",
-      "Menino 2 - 201522184564",
-      "Menino 3 - 201241414141",
-      "Menino 4 - 201241241241",
-      "Menino 5 - 202214241241",
-      "Menino 6 - 201341411212",
-      "Menino 7 - 203414141334",
-      "Menino 8 - 201123123231"
-    ]
+  constructor(private pedidoService: PedidoService) {
+
   }
 
   ngOnInit() {
+    this.pedidoService.mealResult("janta").subscribe(
+      (res: Aluno[]) => {
+        this.alunos = res;
+        this.valor = this.alunos.length;
+      }
+    )
   }
 
 }

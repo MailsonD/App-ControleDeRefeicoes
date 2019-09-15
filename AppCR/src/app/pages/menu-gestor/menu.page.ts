@@ -1,3 +1,4 @@
+import { SessionService } from '../../services/session.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,31 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPage implements OnInit {
 
-  
+
 
   pages = [
     {
       title: 'Estatisticas',
-      url: '/menu/estatistica-gestor',
+      url: '/gestor/estatisticas',
       icon: 'stats'
     },
     {
       title: 'Dados',
-      url: '/menu/dados-usuario',
+      url: '/gestor/dados-usuario',
       icon: 'contact'
     },
     {
       title: 'Logout',
-      url: '/tabs/tab1/view',
+      url: '/publico/tabs/tab1/view',
       icon: 'power'
     }
   ]
 
-  constructor() {
-    
-   }
+  constructor(
+    private session: SessionService
+  ) {}
 
   ngOnInit() {
+  }
+
+  logout(title: string) {
+    return title === 'Logout' ? this.session.invalidateSession() : null;
   }
 
 }
