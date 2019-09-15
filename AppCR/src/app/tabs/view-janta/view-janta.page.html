@@ -36,11 +36,23 @@
       </ion-card-header>
   
       <ion-card-content>
+
   
         <ion-list>
-          <ion-item *ngFor="let item of items">
+            <ion-grid class="espacamento"> 
+              <ion-row>
+                <ion-col>
+                  Nome
+                </ion-col>
+                <ion-col>
+                    Matricula
+                  </ion-col>
+              </ion-row>
+            </ion-grid>
+          <ion-item *ngFor="let aluno of alunos">
             <ion-icon name="person" slot="start"></ion-icon>
-            <ion-label>{{item}}</ion-label>
+            <ion-label>{{aluno.nome}}</ion-label>
+            <ion-label>{{aluno.matricula}}</ion-label>
           </ion-item>
   
         </ion-list>
