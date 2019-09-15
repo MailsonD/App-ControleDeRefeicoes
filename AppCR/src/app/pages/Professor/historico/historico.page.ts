@@ -1,3 +1,4 @@
+import { SessionService } from './../../../services/session.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Usuario } from './../../../models/Usuario';
 import { Subscription, Observable } from 'rxjs';
@@ -26,13 +27,13 @@ export class HistoricoPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private pedidoService: PedidoService,
-    private usuarioService: UsuarioService,
+    private sessionService: SessionService,
     private modalController: ModalController,
     public alertController: AlertController
   ) {
-    this.subscription = this.usuarioService.$usuario.subscribe(dados => this.usuario = dados);
-    this.usuario = new Usuario();
-    this.usuario.matricula="1234";
+    this.subscription = this.sessionService.$usuario.subscribe(dados => this.usuario = dados);
+    // this.usuario = new Usuario();
+    // this.usuario.matricula="1234";
   }
 
   ngOnInit() {
