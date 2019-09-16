@@ -28,15 +28,23 @@ export class PrimeiroAcessoPage implements OnInit {
 
   firstAcess(){
     this.usuarioService.firstAccess(this.firstAcessForm.value['matricula'],this.firstAcessForm.value['email']).then( () => {
-      this.presentToast;
+      this.presentToast();
     }).catch(()=>{
-      console.log("Erro!")
+      this.noTpresentToast();
     })
   }
 
   async presentToast() {
     const toast = await this.toastController.create({
       message: 'Senha Enviada',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async noTpresentToast() {
+    const toast = await this.toastController.create({
+      message: 'Senha Não Enviada',
       duration: 2000
     });
     toast.present();
