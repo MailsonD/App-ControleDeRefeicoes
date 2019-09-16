@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content>
   <div class="ion-margin-vertical">
-    <img class="redondo" src="../../../assets/img/madison.jpg" />
+    <img (click)="capturar()" class="redondo" [src]="output" />
   </div>
   <form [formGroup]="usuarioForm" (ngSubmit)="update()">
     <ion-card class="background-color">

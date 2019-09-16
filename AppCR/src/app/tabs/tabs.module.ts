@@ -1,3 +1,4 @@
+import { Firebase } from '@ionic-native/firebase/ngx';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +15,9 @@ import { TabsPageRoutingModule } from './tabs.router.module';
     IonicModule,
     TabsPageRoutingModule
   ],
-  declarations: [TabsPage]
+  declarations: [TabsPage],
+  providers : [
+    Firebase
+  ]
 })
 export class TabsPageModule {}

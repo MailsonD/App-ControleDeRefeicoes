@@ -8,7 +8,8 @@ export const environment = {
   // API: 'http://localhost:8080/Controle-de-Refeicoes/api',
   SHARED_PREFERENCES_DIRECTORY: "appPreferencesFile",
   SESSAO_ATIVA: "sessaoAtiva",
-  TIPO_ACESSO: "tipoAcesso"
+  TIPO_ACESSO: "tipoAcesso",
+  FOTO_USUARIO: "fotoUsuario"
 };
 
 /**
