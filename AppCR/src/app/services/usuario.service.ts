@@ -56,20 +56,9 @@ export class UsuarioService {
    * @param email Email do usuário.
    * @returns `Observable<any>`
    * 
-   * {@example this.service.firstAccess("123", "123_gmail.com").subscribe(
-                  success => {
-                    console.log('success');
-                  },
-                  error => {
-                    console.log(error);
-                  },
-                  () => {
-                    console.log('request completed');
-                  }
-                );
    */
-  firstAccess(matricula: string, email: string): Observable<any>{
-    return this.http.post(`${this.API}/primeiroAcesso`, { 'matricula':matricula, 'email':email }).pipe(take(1));
+  firstAccess(matricula: string, email: string){
+    return this.http.post(`${this.API}/primeiro-acesso`, { 'matricula':matricula, 'email':email }).toPromise();
   }
 
   /**
