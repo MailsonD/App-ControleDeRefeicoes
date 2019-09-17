@@ -4,12 +4,14 @@
 
 export const environment = {
   production: false,
-  API: 'http://192.168.0.119:8080/Controle-De-Refeicoes/api',
+  API: 'http://192.168.0.105:8080/Controle-De-Refeicoes/api',
   // API: 'http://localhost:8080/Controle-de-Refeicoes/api',
   SHARED_PREFERENCES_DIRECTORY: "appPreferencesFile",
   SESSAO_ATIVA: "sessaoAtiva",
   TIPO_ACESSO: "tipoAcesso",
-  FOTO_USUARIO: "fotoUsuario"
+  FOTO_USUARIO: "fotoUsuario",
+  MATRICULA_USUARIO: "matriculaUsuario",
+  SENHA_USUARIO: "senhaUsuario"
 };
 
 /**
