@@ -35,11 +35,11 @@ export class LoginPage implements OnInit {
       if(usuario.nivelAcesso === 'PROFESSOR'){
         console.log("professor logado");
         this.router.navigate(['/menu-prof/solicitacao']);
-        this.session.createSession(usuario);
+        this.session.createTeacherSession(usuario);
       }else if(usuario.nivelAcesso === 'GESTOR'){
         console.log("gestor logado");
         this.router.navigate(['/gestor/estatisticas']);
-        this.session.createSession(usuario);
+        this.session.createManagerSession(usuario);
       }
     }).catch(err => {
       console.log("error login");

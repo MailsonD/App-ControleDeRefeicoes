@@ -107,5 +107,5 @@
     </plugin>
     <plugin name="cordova-plugin-firebase" spec="../../cordova-plugin-firebase" />
     <plugin name="cordova-sqlite-storage" spec="^3.3.0" />
-    <allow-navigation href="http://localhost:8100" sessionid="fb103430" />
+    <allow-navigation href="http://localhost:8100" sessionid="e7c183d2" />
 </widget>

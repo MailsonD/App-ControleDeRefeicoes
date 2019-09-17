@@ -17,7 +17,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
   ],
   declarations: [TabsPage],
   providers : [
-    Firebase
+    // Firebase
   ]
 })
 export class TabsPageModule {}

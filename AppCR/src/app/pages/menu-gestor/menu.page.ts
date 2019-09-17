@@ -1,5 +1,6 @@
 import { SessionService } from '../../services/session.service';
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/Usuario';
 
 @Component({
   selector: 'app-menu',
@@ -30,13 +31,19 @@ export class MenuPage implements OnInit {
 
   constructor(
     private session: SessionService
-  ) {}
+  ) { }
 
   ngOnInit() {
   }
 
   logout(title: string) {
-    return title === 'Logout' ? this.session.invalidateSession() : null;
+    if (title === 'Logout') {
+      let subscription = this.session.$usuario.subscribe((user : Usuario) =>{
+      this.session.invalidManagerToken(user.matricula);
+      this.session.invalidateSession();
+      });
+      subscription.unsubscribe();
+    }
   }
 
 }
